@@ -1,11 +1,122 @@
-/* Styles for the reservation form */
-.reservation-container { max-width:600px; margin:2rem auto; padding:2rem; border-radius:1rem; box-shadow:0 4px 15px rgba(0,0,0,0.1); background:#fff; font-family:'Inter',sans-serif; }
-.form-group { margin-bottom:1rem; }
-label { display: block; margin-bottom: .5rem; font-weight: 600; }
-input, select, textarea { width:100%; padding:.6rem; border:1px solid #ddd; border-radius:.5rem; box-sizing: border-box; }
-input:focus, select:focus, textarea:focus { border-color:#0073aa; outline:none; }
-.btn-reserver { background:#0073aa; color:#fff; padding:.8rem 1.2rem; border:none; border-radius:.5rem; cursor:pointer; width: 100%; font-size: 1rem; }
-.btn-reserver:hover { background:#005f8d; }
-.message { margin-top:1rem; font-weight:600; padding: 1rem; border-radius: .5rem; }
-.message.success { color: #155724; background-color: #d4edda; border-color: #c3e6cb; }
-.message.error { color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; }
+/* --- Modern & Minimalist Styles for RPP Frontend --- */
+
+/* Use a modern system font stack for better performance and native feel */
+:root {
+    --rpp-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --rpp-primary-color: #3a86ff; /* A modern, friendly blue */
+    --rpp-text-color: #2d3748; /* Dark gray for text */
+    --rpp-label-color: #4a5568; /* Slightly lighter gray for labels */
+    --rpp-border-color: #e2e8f0; /* Light gray for borders */
+    --rpp-background-color: #ffffff;
+    --rpp-success-bg: #e6fffa;
+    --rpp-success-text: #2c7a7b;
+    --rpp-error-bg: #fff5f5;
+    --rpp-error-text: #c53030;
+}
+
+.reservation-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background: var(--rpp-background-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    font-family: var(--rpp-font-family);
+    color: var(--rpp-text-color);
+    border: 1px solid var(--rpp-border-color);
+}
+
+.reservation-container h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--rpp-label-color);
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--rpp-border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #f7fafc;
+    font-size: 1rem;
+    color: var(--rpp-text-color);
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--rpp-primary-color);
+    background-color: var(--rpp-background-color);
+    box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.btn-reserver {
+    background: var(--rpp-primary-color);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-reserver:hover {
+    background: #2b77ee;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(58, 134, 255, 0.2);
+}
+
+.btn-reserver:disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.message {
+    margin-top: 1.5rem;
+    font-weight: 500;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    display: none; /* Hidden by default, shown by JS */
+}
+
+.message.success {
+    color: var(--rpp-success-text);
+    background-color: var(--rpp-success-bg);
+}
+
+.message.error {
+    color: var(--rpp-error-text);
+    background-color: var(--rpp-error-bg);
+}
