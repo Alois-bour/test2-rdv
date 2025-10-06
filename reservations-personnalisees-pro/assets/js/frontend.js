@@ -10,22 +10,28 @@
         // --- 1. Populate Date and Time Fields ---
 
         function populateDates() {
-            const today = new Date();
-            for (let i = 0; i < 30; i++) { // Show next 30 days
-                let currentDate = new Date();
-                currentDate.setDate(today.getDate() + i);
+            $dateSelect.empty(); // Vider les options existantes
 
-                // Skip weekends (Saturday=6, Sunday=0)
-                if (currentDate.getDay() === 0 || currentDate.getDay() === 6) {
-                    continue;
-                }
+            // L'utilisateur a demandé des dates spécifiques : 18, 19, 20, 21 novembre.
+            // Nous utiliserons l'année en cours pour ces dates.
+            const year = new Date().getFullYear();
+            const dates = [
+                `${year}-11-18`,
+                `${year}-11-19`,
+                `${year}-11-20`,
+                `${year}-11-21`
+            ];
 
-                let dateString = currentDate.getFullYear() + '-' + ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' + ('0' + currentDate.getDate()).slice(-2);
+            dates.forEach(dateString => {
+                // Ajouter T00:00:00 pour éviter les problèmes de fuseau horaire
+                const date = new Date(dateString + 'T00:00:00');
+                const displayText = date.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
                 $dateSelect.append($('<option>', {
                     value: dateString,
-                    text: currentDate.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                    text: displayText
                 }));
-            }
+            });
         }
 
         function populateHeures() {
