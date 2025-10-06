@@ -1,0 +1,21 @@
+/* Admin styles for RPP Plugin */
+.wrap .form-table {
+    max-width: 800px;
+}
+
+.wrap .form-table th {
+    width: 200px;
+}
+
+.wrap .form-table .wp-editor-wrap {
+    width: 100%;
+}
+
+.wrap .form-table textarea {
+    width: 100%;
+    min-height: 150px;
+}
+
+.wrap .wp-heading-inline + .page-title-action {
+    margin-left: 10px;
+}
